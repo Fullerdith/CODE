@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+build/
+dist/
+*.spec
+*.exe
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+# 敏感文件（含凭证）
+educoder_exercise.json
+verify.json
+verify2.json
+submit_programming.sh
