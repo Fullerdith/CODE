@@ -1,7 +1,7 @@
 """
 BMR Calculator - Desktop App
 依赖: pip install pywebview pyinstaller
-打包: pyinstaller --onefile --windowed --add-data "bmr-calculator.html;." bmr-app.py
+打包: pyinstaller --onefile --windowed --add-data "bmr-calculator-基础代谢计算器.html;." bmr-app-桌面打包.py
 """
 import os
 import sys
@@ -13,7 +13,7 @@ if getattr(sys, 'frozen', False):
 else:
     base = os.path.dirname(os.path.abspath(__file__))
 
-html_path = os.path.join(base, 'bmr-calculator.html')
+html_path = os.path.join(base, 'bmr-calculator-基础代谢计算器.html')
 
 with open(html_path, 'r', encoding='utf-8') as f:
     html = f.read()
