@@ -29,7 +29,24 @@
 3. 连接失败 = CC Switch 未启动
 4. 地区不可用 = 代理配置错误
 
-## 五、长期使用目标
+## 五、模型插件能力
+
+### 图片识别（视觉）
+- DeepSeek v4 **不支持**视觉，需要间接调用千问 VL 模型
+- 脚本: `python f:/Stuff/vision.py <图片路径> [提问]`
+- 当用户贴图显示 `[Unsupported Image]` 时，提示保存文件后调用 vision.py
+- 千问 API Key: sk-fddd345fa23049c290d393b662d4cc29
+
+### 未来扩展
+- 图片生成 / 视频生成 / 语音合成 同样用插件模式
+- 主模型永远是 DeepSeek v4，特殊能力走专用模型 API
+
+## 六、Git 自动推送
+- 仓库: `https://github.com/Fullerdith/CODE`
+- 脚本: `powershell f:/Stuff/auto-push-自动推送.ps1`
+- 每次生成/修改文件后提交，commit 格式: `type: EN desc 中文描述`
+
+## 七、长期使用目标
 1. 现阶段专注使用 DeepSeek
 2. 未来会接入 Claude 等其他模型
 3. 依靠 CC Switch 实现一键切换，不改动环境
