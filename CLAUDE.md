@@ -35,7 +35,7 @@
 - DeepSeek v4 **不支持**视觉，需要间接调用千问 VL 模型
 - 脚本: `python f:/Stuff/vision.py <图片路径> [提问]`
 - 当用户贴图显示 `[Unsupported Image]` 时，提示保存文件后调用 vision.py
-- 千问 API Key: sk-fddd345fa23049c290d393b662d4cc29
+- 千问 API Key 通过环境变量 DASHSCOPE_API_KEY 配置
 
 ### 未来扩展
 - 图片生成 / 视频生成 / 语音合成 同样用插件模式
