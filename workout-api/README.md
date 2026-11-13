@@ -32,11 +32,14 @@ uvicorn main:app --reload
 
 ## 测试
 
-`pytest test_pagination.py` 运行不依赖数据库的分页计算测试。API 测试使用 MySQL 中的 `fastapi_test` 数据库，先创建该空数据库和表，并在隔离环境运行。测试会创建和删除测试记录，分页断言依赖测试库为空。
+`pytest test_pagination.py` 运行不依赖数据库的分页计算测试。API 测试使用 MySQL 中的 `fastapi_test` 数据库，先创建该空数据库，并使用下列命令在其中建表。测试会创建和删除测试记录，分页断言依赖测试库为空。
 
 ```powershell
 pytest test_pagination.py
+$env:DATABASE_URL = 'mysql+aiomysql://user:password@127.0.0.1:3306/fastapi_test'
+python create_tables.py
 pytest test_workouts_api.py
+Remove-Item Env:DATABASE_URL
 ```
 
 当前项目没有用户认证，适合本机学习。建表脚本使用 SQLAlchemy `create_all`，不会迁移已有表结构。
