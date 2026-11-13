@@ -3,10 +3,10 @@
 优化: HTTP连接复用 + 减小输出 + 计时日志
 用法: python vision.py <图片路径> [提问]
 """
-import sys, base64, json, time, ssl
+import sys, base64, json, time, ssl, os
 from http.client import HTTPSConnection
 
-API_KEY = "sk-fddd345fa23049c290d393b662d4cc29"
+API_KEY = os.environ.get("DASHSCOPE_API_KEY")
 API_HOST = "dashscope.aliyuncs.com"
 MODEL = "qwen-vl-plus"
 MAX_TOKENS = 800  # 减半，够用且更快
@@ -24,6 +24,8 @@ def encode_image(path: str) -> str:
         return base64.b64encode(f.read()).decode("utf-8")
 
 def vision(image_path: str, prompt: str = "提取图片中的所有文字，逐字输出。") -> dict:
+    if not API_KEY:
+        raise RuntimeError("请设置 DASHSCOPE_API_KEY 环境变量")
     t0 = time.time()
     img_b64 = encode_image(image_path)
     t1 = time.time()
